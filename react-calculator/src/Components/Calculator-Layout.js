@@ -1,52 +1,57 @@
 import React from 'react';
-import bootstrap from 'react-bootstrap';
-import { Card } from 'react-bootstrap';
+import { Component } from 'react';
+import { Card, Row, Col } from 'react-bootstrap';
 
-class Calculator extends Component {
+class CalculatorLayout extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      
+
     }
   }
-}
+  render() {
+    return (
+   // React Bootstrap card layout and designed rows and columns to resemble buttons
 <Card bg="dark" text="white" style={{ width: '18rem' }}>
-<Card.Header>Header</Card.Header>
 <Card.Body>
-<row className="row1">
-<Col sm={12}></Col>
-</row>
-<row className="row2">
+<Row className="row1">
+<Col sm={12}>0</Col>
+</Row>
+<Row className="row2">
 <Col sm={6}>AC</Col>
 <Col sm={3}>/</Col>
 <Col sm={3}>x</Col>
-</row>
-<row className="row3">
+</Row>
+<Row className="row3">
 <Col sm={3}>7</Col>
 <Col sm={3}>8</Col>
 <Col sm={3}>9</Col>
 <Col sm={3}>-</Col>
-</row>
-<row className="row4">
+</Row>
+<Row className="row4">
 <Col sm={3}>4</Col>
 <Col sm={3}>5</Col>
 <Col sm={3}>6</Col>
 <Col sm={3}>+</Col>
-</row>
-<row className="row5">
+</Row>
+<Row className="row5">
 <Col sm={3}>1</Col>
 <Col sm={3}>2</Col>
 <Col sm={3}>3</Col>
 <Col sm={3}>=</Col>
-</row>
-<row className="row6">
+</Row>
+<Row className="row6">
 <Col sm={6}>0</Col>
 <Col sm={3}>.</Col>
 <Col sm={3}></Col>
-</row>
+</Row>
 </Card.Body>
 </Card>
+    )
+  }
+}
 
+export default CalculatorLayout;
 // Bootstrap grid is always 12 across
 // Layout for Card
 // 6 rows
