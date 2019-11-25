@@ -69,3 +69,6 @@ export default CalculatorLayout;
 // 4. Switch case to handle what to do with numbers once operator is chosen
 // 5. Create a function to keep track of user input
 // --> Handles numbers and operation pushed
+// Onclick event handlers needed for each "button pressed"
+// RESEARCH onClick function in React
+// RESEARCH switch case implementation in React
