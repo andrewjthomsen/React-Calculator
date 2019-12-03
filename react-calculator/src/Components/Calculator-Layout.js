@@ -3,12 +3,16 @@ import { Component } from "react";
 import { Card, Row, Col, Button } from "react-bootstrap";
 
 class CalculatorLayout extends Component {
-  state = {
-    display: 0,
-    operator: "",
-    num1: 0,
-    num2: 0
-  };
+  constructor(props) {
+    super(props);
+    this.state = {
+      display: 0,
+      operator: "",
+      num1: 0,
+      num2: 0
+    };
+  }
+ 
 
   add = (num1, num2) => {
     this.setState({
@@ -49,8 +53,8 @@ class CalculatorLayout extends Component {
     }
   };
 
-  buttonClick = (event) => {
-    let value = event.target.getAttribute('value')
+  buttonClick = e => {
+    const value = e.target.value
     this.setState({
       operator: value
     })
@@ -69,20 +73,20 @@ class CalculatorLayout extends Component {
           </Row>
           <Row className="row2">
             <Button><Col id="clear" sm={6}>AC</Col></Button>
-            <Button onClick= {this.buttonClick} value="%"><Col id="divide" sm={3}>/</Col></Button>
-            <Button onClick={this.buttonClick} value="*"><Col id="multiply" sm={3}>x</Col></Button>
+            <Button value={"%"} onClick= {(e) => this.buttonClick(e)}><Col id="divide" sm={3}>/</Col></Button>
+            <Button onClick={this.buttonClick} value={"*"}><Col id="multiply" sm={3}>x</Col></Button>
           </Row>
           <Row className="row3">
             <Button><Col id="seven" sm={3}> 7</Col></Button>
             <Button><Col id="eight" sm={3}>8</Col></Button>
             <Button><Col id="nine" sm={3}>9</Col></Button>
-            <Button onClick={this.buttonClick} value="-"><Col id="minus" sm={3}>-</Col></Button>
+            <Button onClick={this.buttonClick} value={"-"}><Col id="minus" sm={3}>-</Col></Button>
           </Row>
           <Row className="row4">
             <Button><Col id="three" sm={3}>4</Col></Button>
             <Button><Col id="five" sm={3}>5</Col></Button>
             <Button><Col id="six" sm={3}>6</Col></Button>
-            <Button onClick={this.buttonClick} value="+"><Col id="plus" s m={3}>+</Col></Button>
+            <Button onClick={this.buttonClick} value={"+"}><Col id="plus" s m={3}>+</Col></Button>
           </Row>
           <Row className="row5">
           <Button><Col id="one" sm={3}>1</Col></Button>
