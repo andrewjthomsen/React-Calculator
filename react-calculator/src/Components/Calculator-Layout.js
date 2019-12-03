@@ -12,42 +12,51 @@ class CalculatorLayout extends Component {
 
   add = (num1, num2) => {
     this.setState({
-      display: this.setState.num1 + this.setState.num2
+      display: this.state.num1 + this.state.num2
     });
   };
 
   subtract = (num1, num2) => {
     this.setState({
-      display: this.setStae.num1 - this.setState.num2
+      display: this.state.num1 - this.state.num2
     });
   };
 
   multiply = (num1, num2) => {
     this.setState({
-      display: this.setState.num1 * this.setState.num2
+      display: this.state.num1 * this.state.num2
     });
   };
 
   divide = (num1, num2) => {
     this.setState({
-      display: this.setState.num1 % this.setState.num2
+      display: this.state.num1 % this.state.num2
     });
   };
-  Operand = () => {
-    if (this.state.operand === "+") {
+  operand = () => {
+    if (this.state.operator === "+") {
       this.add();
-      console.log(this.state.operand);
-    } else if (this.state.operand === "-") {
+      console.log(this.state.operator);
+    } else if (this.state.operator === "-") {
       this.subtract();
-      console.log(this.state.operand);
-    } else if (this.state.operand === "*") {
+      console.log(this.state.operator);
+    } else if (this.state.operator === "*") {
       this.multiply();
-      console.log(this.state.operand);
-    } else if (this.state.operand === "%") {
+      console.log(this.state.operator);
+    } else if (this.state.operator === "%") {
       this.divide();
-      console.log(this.state.operand);
+      console.log(this.state.operator);
     }
   };
+
+  buttonClick = (event) => {
+    let value = event.target.getAttribute('value')
+    this.setState({
+      operator: value
+    })
+    console.log(value)
+    console.log(this.state);
+  }
   render() {
     return (
       // React Bootstrap card layout and designed rows and columns to resemble buttons
@@ -60,20 +69,20 @@ class CalculatorLayout extends Component {
           </Row>
           <Row className="row2">
             <Button><Col id="clear" sm={6}>AC</Col></Button>
-            <Button onClick={this.setState.operand =  "%"}><Col id="divide" sm={3}>/</Col></Button>
-            <Button onClick={this.setState.operand =  "*"}><Col id="multiply" sm={3}>x</Col></Button>
+            <Button onClick= {this.buttonClick} value="%"><Col id="divide" sm={3}>/</Col></Button>
+            <Button onClick={this.buttonClick} value="*"><Col id="multiply" sm={3}>x</Col></Button>
           </Row>
           <Row className="row3">
             <Button><Col id="seven" sm={3}> 7</Col></Button>
             <Button><Col id="eight" sm={3}>8</Col></Button>
             <Button><Col id="nine" sm={3}>9</Col></Button>
-            <Button onClick={this.setState.operand =  "-"}><Col id="minus" sm={3}>-</Col></Button>
+            <Button onClick={this.buttonClick} value="-"><Col id="minus" sm={3}>-</Col></Button>
           </Row>
           <Row className="row4">
             <Button><Col id="three" sm={3}>4</Col></Button>
             <Button><Col id="five" sm={3}>5</Col></Button>
             <Button><Col id="six" sm={3}>6</Col></Button>
-            <Button onClick={this.setState.operand =  "+"}><Col id="plus" s m={3}>+</Col></Button>
+            <Button onClick={this.buttonClick} value="+"><Col id="plus" s m={3}>+</Col></Button>
           </Row>
           <Row className="row5">
           <Button><Col id="one" sm={3}>1</Col></Button>
